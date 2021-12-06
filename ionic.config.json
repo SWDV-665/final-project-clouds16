@@ -1,0 +1,7 @@
+{
+  "name": "AdvancedTopics",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
