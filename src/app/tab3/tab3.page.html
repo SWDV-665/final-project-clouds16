@@ -9,9 +9,42 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Contact</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
-</ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Contact Us!</ion-card-subtitle>
+    </ion-card-header>
+
+    <form>
+      <ion-item class ="name">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="name" name ="name"></ion-input>
+      </ion-item>
+
+      <ion-item class ="email">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" name ="email"></ion-input>
+      </ion-item>
+
+      <ion-item class ="subject">
+        <ion-label position="floating">Subject</ion-label>
+        <ion-input [(ngModel)]="subject" name ="subject"></ion-input>
+      </ion-item>
+
+      <ion-item class ="message">
+        <ion-label position="floating">Message</ion-label>
+        <ion-textarea [(ngModel)]="message" name ="message"></ion-textarea>
+      </ion-item>
+
+      <ion-item class ="btns">
+        <ion-button  type="submit" (click)="contactAlert()" class="ion-activatable ripple-parent">Send
+        </ion-button>
+        <ion-button class ="cancel"  class="ion-activatable ripple-parent">Cancel</ion-button>
+      </ion-item>
+
+    </form>
+  </ion-card>
+  </ion-content>

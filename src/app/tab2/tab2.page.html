@@ -13,5 +13,57 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Chart your weight over time! </ion-card-title>
+      <ion-card-subtitle> Get Fit </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Whether you are trying to lose weight for yourself, for health reasons
+      or to look better, we encourage that you use a tracking system to keep track 
+      of your progress! Go ahead! add some data points and see your progress over time.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <canvas baseChart
+    data="dummydata"
+    label = "dummylabels"
+    options="barChartOptions" 
+    plugins="barChartPlugins"
+    type="barChartType">
+    </canvas>
+    <img src="../assets/chart.png" />
+    
+  </ion-card>
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor ="let item of items; let i =index">
+      <ion-item>
+        <h2> weight : {{item.weight}}
+          <p> Date: {{item.date}}</p>
+        </h2>
+      </ion-item>
+      <ion-item-options  side="end">
+        <ion-item-option  (click)="removeItem(item,i)">
+          <ion-icon class ="icon-trash" name ="trash"></ion-icon>
+        </ion-item-option>
+        <ion-item-option  (click)="editItem(item,i)">
+          <ion-icon class ="icon-edit" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option  (click)="shareItem(item,i)">
+          <ion-icon class="icon-edit" name="share"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="AlertPrompt()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Chart Weights
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,63 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">
+         <div > Fitness App </div> </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+
+ <ion-card>
+  <ion-card-header>
+    <ion-card-title> BMI Calculator </ion-card-title>
+    <ion-card-subtitle> Get Fit </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    Body mass index (BMI) is a person’s weight in kilograms divided by the square of height in meters. 
+    BMI is an inexpensive and easy screening method for weight category—underweight, healthy weight, overweight, and obesity.
+
+    BMI does not measure body fat directly, but BMI is moderately correlated with more direct measures of body fat 
+    Furthermore, BMI appears to be as strongly correlated with various metabolic and disease outcome as are these more direct measures of body fatness
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <img src="../assets/bmiscale.jpeg" />
+</ion-card>
+
+  <ion-list>
+    <ion-item-sliding *ngFor ="let item of items; let i =index">
+      <ion-item>
+        <h2> weight : {{item.weight}}
+          <p > height:  {{item.feet}}' {{item.inches}}"</p>
+          <p> BMI : {{item.bmi}}</p>
+          <p> Date: {{item.date}}</p>
+        </h2>
+      </ion-item>
+      <ion-item-options  side="end">
+        <ion-item-option  (click)="removeItem(item,i)">
+          <ion-icon class ="icon-trash" name ="trash"></ion-icon>
+        </ion-item-option>
+        <ion-item-option  (click)="editItem(item,i)">
+          <ion-icon class ="icon-edit" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option  (click)="shareItem(item,i)">
+          <ion-icon class="icon-edit" name="share"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="presentAlertPrompt()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  </ion-content>
+
+
+
+
+
